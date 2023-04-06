@@ -16,10 +16,10 @@ exports.register = (req, res) => {
         totalExpenses: 0,
       })
         .then((r) => {
-          res.json(r);
+          res.status(200).json(r);
         })
         .catch((err) => {
-          res.json({ errorMsg: err.errors[0].message });
+          res.status(401).json({ errorMsg: err.errors[0].message });
         });
     } else {
       res.json(err);
@@ -37,12 +37,12 @@ exports.login = (req, res) => {
             .json({ message: "Login success", token: generateToken(u.id) });
         } else {
           res
-            .status(203)
+            .status(401)
             .json({ err: err, message: "Login Failed,  Password Incorrect" });
         }
       });
     } else {
-      res.status(204).json({ message: "user not found" });
+      res.status(404).json({ message: "user not found" });
     }
   });
 };
