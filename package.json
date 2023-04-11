@@ -9,14 +9,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.1350.0",
+    "aws-sdk": "^2.1306.0",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
-    "mysql2": "^3.2.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^1.6.1",
+    "pug": "^3.0.2",
+    "razorpay": "^2.8.4",
+    "express": "^4.18.2",
     "sequelize": "^6.30.0"
   }
 }
