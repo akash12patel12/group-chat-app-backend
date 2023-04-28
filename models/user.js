@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../util/database');
 
-const User = sequelize.define('user', {
+const User = sequelize.define('User', {
     id : {
         type : Sequelize.INTEGER,
         default : 1 ,
@@ -11,28 +11,10 @@ const User = sequelize.define('user', {
         primaryKey: true
 
     },
-    name : {
+    username : {
         type :Sequelize.STRING,
-        allowNull : false
-    },
-    email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        validate: {
-          isEmail:true
-        },
-        unique: {
-            args: true,
-            msg: 'Email address already in use!'
-        }
-      },
-    phone : {
-        type : Sequelize.STRING,
         allowNull : false,
-        unique: {
-            args: true,
-            msg: 'Phone  already in use!'
-        }
+        unique :true
     },
     password : {
         type : Sequelize.STRING,

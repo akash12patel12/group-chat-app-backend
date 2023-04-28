@@ -11,7 +11,7 @@ exports.send = async (req,res) =>{
    console.log(sender.id);
    Message.create({
        senderid : sender.id,
-       sender : sender.name,
+       sender : sender.username,
        message : message
    }).then(data=>{
       res.status(200).json({success : true})

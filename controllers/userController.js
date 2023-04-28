@@ -9,11 +9,11 @@ exports.register = (req, res) => {
     // Store hash in your password DB.
     if (!err) {
       User.create({
-        name: req.body.name,
-        email: req.body.email,
+        username: req.body.username,
+        // email: req.body.email,
         password: hash,
-        phone: req.body.phone,
-        totalExpenses: 0,
+        // phone: req.body.phone,
+        // totalExpenses: 0,
       })
         .then((r) => {
           res.status(200).json(r);
@@ -28,7 +28,7 @@ exports.register = (req, res) => {
 };
 
 exports.login = (req, res) => {
-  User.findOne({ where: { email: req.body.email } }).then((u) => {
+  User.findOne({ where: { username: req.body.username } }).then((u) => {
     if (u) {
       bcrypt.compare(req.body.password, u.password, (err, result) => {
         if (result) {
